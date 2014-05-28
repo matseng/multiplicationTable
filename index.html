@@ -1,0 +1,16 @@
+<html ng-app='myApp'>
+<head>
+  <title>Multiplication Table</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js" type="text/javascript"></script>
+</head>
+<body>
+  <table ng-controller="MultiplcationController" initial-number-limit="12">
+  <tr ng-repeat="numberA in numbers">
+    <td ng-repeat="numberB in numbers">
+      {{ numberA * numberB }}
+    </td>
+  </tr>
+</table>
+<script src='./myApp.js'></script>
+</body>
+</html>
