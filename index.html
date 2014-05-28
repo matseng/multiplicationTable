@@ -8,9 +8,9 @@
   <div ng-controller="MultiplcationController" initial-number-limit="10">
     <input type='number' ng-model='numberLimit' placeholder='Enter a number'>
     <table>
-      <tr ng-repeat="numberA in numbers">
-        <td ng-repeat="numberB in numbers">
-          {{ compute(numberA, numberB) }}
+      <tr ng-repeat="row in numbers">
+        <td ng-repeat="col in numbers" ng-mouseover='setActiveFactors(row, col)' ng-class='{hover: matchesFactor(row, col)}'>
+          {{ compute(row, col) }}
         </td>
       </tr>
     </table>
