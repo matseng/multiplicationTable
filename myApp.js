@@ -30,5 +30,9 @@ angular.module('myApp')
       return row === activeRow || col === activeCol;
     };
 
+    $scope.clearActiveFactors = function() {
+      activeRow = activeCol = null;
+    };
+
 
   }]);

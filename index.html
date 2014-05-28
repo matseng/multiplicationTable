@@ -9,7 +9,10 @@
     <input type='number' ng-model='numberLimit' placeholder='Enter a number'>
     <table>
       <tr ng-repeat="row in numbers">
-        <td ng-repeat="col in numbers" ng-mouseover='setActiveFactors(row, col)' ng-class='{hover: matchesFactor(row, col)}'>
+        <td ng-repeat="col in numbers" 
+        ng-mouseleave="clearActiveFactors()"
+        ng-mouseover='setActiveFactors(row, col)' 
+        ng-class='{hover: matchesFactor(row, col)}'>
           {{ compute(row, col) }}
         </td>
       </tr>
