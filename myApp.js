@@ -3,7 +3,6 @@ angular.module('myApp', []);
 angular.module('myApp')
   .controller('DisplayController', ['$scope', function($scope) {
     $scope.$on('displayNumber', function(event, number) {
-      console.log('here', number);
       $scope.content = number;
     });
   }]);
@@ -43,7 +42,6 @@ angular.module('myApp')
     };
 
     $scope.setNumber = function(number) {
-      // console.log(number);
       $rootScope.$broadcast('displayNumber', number);
     };
 
