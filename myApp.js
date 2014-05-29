@@ -1,7 +1,15 @@
 angular.module('myApp', []);
 
 angular.module('myApp')
-  .controller('MultiplcationController', ['$scope', '$attrs', function($scope, $attrs) {
+  .controller('DisplayController', ['$scope', function($scope) {
+    $scope.$on('displayNumber', function(event, number) {
+      console.log('here', number);
+      $scope.content = number;
+    });
+  }]);
+
+angular.module('myApp')
+  .controller('MultiplcationController', ['$scope', '$attrs', '$rootScope', function($scope, $attrs, $rootScope) {
 
     function populateNumbers(x) {
       var numbers = [];
@@ -32,6 +40,11 @@ angular.module('myApp')
 
     $scope.clearActiveFactors = function() {
       activeRow = activeCol = null;
+    };
+
+    $scope.setNumber = function(number) {
+      // console.log(number);
+      $rootScope.$broadcast('displayNumber', number);
     };
 
 

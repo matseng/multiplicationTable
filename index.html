@@ -5,6 +5,9 @@
   <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
+  <div ng-controller='DisplayController'>
+    {{content}}
+  </div>
   <div ng-controller="MultiplcationController" initial-number-limit="10">
     <input type='number' ng-model='numberLimit' placeholder='Enter a number'>
     <table>
@@ -12,11 +15,16 @@
         <td ng-repeat="col in numbers" 
         ng-mouseleave="clearActiveFactors()"
         ng-mouseover='setActiveFactors(row, col)' 
-        ng-class='{hover: matchesFactor(row, col)}'>
+        ng-class='{hover: matchesFactor(row, col)}'
+        ng-click='setNumber(compute(row, col))'>
           {{ compute(row, col) }}
         </td>
       </tr>
     </table>
+  </div>
+  <div ng-controller='DisplayController'>
+    <div ng-if='content'>The number you clicked is... {{content}}</div>
+    <div ng-if='!content'>You have not yet clicked a value.</div>
   </div>
   <script src='./myApp.js'></script>
 </body>
